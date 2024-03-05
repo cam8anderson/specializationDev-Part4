@@ -1,0 +1,98 @@
+body {
+  background-color: rgb(69, 155, 155);
+  text-align: center;
+}
+
+nav {
+  text-align: center;
+  padding: 10px;
+}
+
+.form-container {
+  background-color: aliceblue;
+  padding: 50px;
+  margin: 0 auto;
+  border-radius: 10px;
+  max-width: 200px;
+}
+
+.form-container h2 {
+  margin-bottom: 20px;
+}
+
+.form-container form {
+  margin-bottom: 10px;
+}
+
+.form-group.submit-btn {
+  margin-top: 10px;
+}
+
+.submit-btn {
+  background: #115e86;
+  color: aliceblue;
+  height: 40px;
+  border-radius: 20px;
+  border: 0;
+  outline: 0;
+  padding: 10px 30px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background: #0a445f;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.nav-link {
+  flex-basis: 48%;
+  background: #115e86;
+  color: aliceblue;
+  height: 40px;
+  border-radius: 20px;
+  border: 0;
+  outline: 0;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 5px;
+}
+
+.team-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.team-box {
+  background-color: aliceblue;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+.team {
+  padding: 20px;
+}
+
+.project-list {
+  list-style: none;
+  padding: 0;
+}
+
+.buttons {
+  margin-top: 10px;
+}
+
+.buttons form {
+  display: inline;
+}
+
+.buttons button {
+  margin-right: 5px;
+}

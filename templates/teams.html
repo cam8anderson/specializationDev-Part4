@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teams and Projects</title>
+    <link rel="stylesheet" href="/static/base.css" />
+  </head>
+  <body>
+    <nav class="nav-container">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/teams" class="nav-link">Teams</a>
+    </nav>
+
+    <h1>Teams and Projects</h1>
+
+    <div class="team-container">
+      {% for team in teams %}
+      <div class="team-box">
+        <div class="team">
+          <h2>{{ team.team_name }}</h2>
+          <ul class="project-list">
+            {% for project in projects if project.team_id == team.id %}
+            <li>
+              {{ project.project_name }}
+              <div class="buttons">
+                <form class="home-plate" action="/team_switch" method="post">
+                  <input
+                    type="hidden"
+                    name="project_id"
+                    value="{{ project.id }}"
+                  />
+                  <button type="submit">Move to Team</button>
+                  <select name="new_team_id">
+                    {% for other_team in teams %} {% if other_team.id != team.id
+                    %}
+                    <option value="{{ other_team.id }}">
+                      {{ other_team.team_name }}
+                    </option>
+                    {% endif %} {% endfor %}
+                  </select>
+                </form>
+                <form action="/delete_project" method="post">
+                  <input
+                    type="hidden"
+                    name="project_id"
+                    value="{{ project.id }}"
+                  />
+                  <button type="submit">Delete Project</button>
+                </form>
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </body>
+</html>

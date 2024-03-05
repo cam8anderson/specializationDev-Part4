@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/base.css" />
+    <title>Project Tracking App</title>
+  </head>
+  <body>
+    <nav class="nav-container">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/teams" class="nav-link">Teams</a>
+    </nav>
+    <h3>Add Teams</h3>
+    <div class="form-container team">
+      <!-- Apply "form-container" and "team" classes -->
+      <form action="{{ url_for('add_team')}}" method="POST">
+        {{ team_form.csrf_token() }}
+        <div class="form-group" style="margin-bottom: 10px">
+          <label for="team_name">Team Name:</label>
+          {{ team_form.team_name }}
+        </div>
+        <div class="form-group">
+          <label for="submit" class="submit-btn">
+            {{ team_form.submit }}
+          </label>
+        </div>
+      </form>
+    </div>
+
+    <h3>Add Projects</h3>
+    <div class="form-container project">
+      <!-- Apply "form-container" class -->
+      <form action="{{ url_for('add_project')}}" method="POST">
+        {{ project_form.csrf_token() }}
+        <div class="form-group">
+          <label for="project_name">Project Name:</label>
+          {{ project_form.project_name }}
+        </div>
+        <div class="form-group">
+          <label for="description">Description:</label>
+          {{ project_form.description }}
+        </div>
+        <div class="form-group">
+          <label for="completed">Completed:</label>
+          {{ project_form.completed }}
+        </div>
+        <div class="form-group">
+          <label for="team_selection">Team Selection:</label>
+          {{ project_form.team_selection }}
+        </div>
+        <div class="form-group submit-btn">
+          <label for="submit"></label>
+          {{ project_form.submit }}
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
